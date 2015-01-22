@@ -8,7 +8,7 @@ module Consumer
   def self.get(url)
     json = open(url).read
     hash = JSON.parse(json)
-    Cosumer::Proxy.new(hash)
+    Consumer::Proxy.new(hash)
   end
 
 end
