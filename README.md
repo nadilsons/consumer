@@ -18,10 +18,11 @@ Or install it yourself as:
     $ gem install consumer
 
 ## Usage
-
+```
 user = Cosumer.get("http://user.api.url")
 puts user.name
 puts user.purchases.first.date
+```
 
 ## Contributing
 
