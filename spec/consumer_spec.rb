@@ -2,44 +2,21 @@ require 'spec_helper'
 
 describe Consumer do
 
-  let(:hash) do
-    {
-      "id" => "0ffe01",
-      "first_item" => "item 1",
-      "second" => "item 2",
-      "third" => 3,
-      "fourthly" => nil,
-      "array" => [ {
-        "item1" => "test 1",
-        "item2" => "test 2"
-      },
-      {
-        "item3" => "test 3",
-        "item4" => "test 4"
-      } ],
-      "child_hash" => {
-        "hash1" => "value 1",
-        "hash2" => "value 2",
-        "array1" => [1,2,3]
-      }
-    }
-  end
+  let(:url) { "http://mock.url/feed_test"                            }
+  before    { register_uri(:get, url, body: fixture("example.json")) }
+  subject   { described_class.get(url)                               }
 
-  let(:url) { "http://mock.url/feed_test"                 }
-  before    { register_uri(:get, url, body: hash.to_json) }
-  subject   { described_class.get(url)                                }
+  its(:id)         { should == "0ffe01" }
+  its(:first_item) { should == "item 1" }
+  its(:second)     { should == "item 2" }
+  its(:third)      { should == 3        }
+  its(:fourthly)   { should be_nil      }
 
-  its(:id)       { should == "0ffe01" }
-  its(:first_item)    { should == "item 1" }
-  its(:second)   { should == "item 2" }
-  its(:third)    { should == 3        }
-  its(:fourthly) { should be_nil      }
-
-  it { expect(subject.respond_to?(:id)).to be_truthy       }
-  it { expect(subject.respond_to?(:first_item)).to be_truthy    }
-  it { expect(subject.respond_to?(:second)).to be_truthy   }
-  it { expect(subject.respond_to?(:third)).to be_truthy    }
-  it { expect(subject.respond_to?(:fourthly)).to be_truthy }
+  it { expect(subject.respond_to?(:id)).to be_truthy         }
+  it { expect(subject.respond_to?(:first_item)).to be_truthy }
+  it { expect(subject.respond_to?(:second)).to be_truthy     }
+  it { expect(subject.respond_to?(:third)).to be_truthy      }
+  it { expect(subject.respond_to?(:fourthly)).to be_truthy   }
 
   it { expect(subject.array).to be_a Array            }
   it { expect(subject.array.size).to eq(2)            }
