@@ -1,0 +1,26 @@
+{
+  "id": "0ffe01",
+  "first_item": "item 1",
+  "second": "item 2",
+  "third": 3,
+  "fourthly": null,
+  "array": [
+    {
+      "item1": "test 1",
+      "item2": "test 2"
+    },
+    {
+      "item3": "test 3",
+      "item4": "test 4"
+    }
+  ],
+  "child_hash": {
+    "hash1": "value 1",
+    "hash2": "value 2",
+    "array1": [
+      1,
+      2,
+      3
+    ]
+  }
+}

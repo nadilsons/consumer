@@ -1,0 +1,12 @@
+[
+  {
+    "rel": "interno",
+    "href": "http://url-interna",
+    "type": "image/jpeg"
+  },
+  {
+    "rel": "externo",
+    "href": "http://url-externa",
+    "type": "image/jpeg"
+  }
+]

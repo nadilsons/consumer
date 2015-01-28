@@ -12,4 +12,8 @@ RSpec.configure do |config|
     FakeWeb.register_uri(method, uri, options)
   end
 
+  def fixture(name)
+    File.read("#{Dir.pwd}/spec/fixtures/#{name}")
+  end
+
 end
