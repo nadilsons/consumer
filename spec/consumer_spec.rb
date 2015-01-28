@@ -47,5 +47,60 @@ describe Consumer do
   it { expect(subject.respond_to?(:fifth)).to be_falsey }
   it { expect(subject.respond_to?(:class)).to be_truthy }
 
-  it { expect(subject).to eq(hash) }
+  it { expect(subject).to eq(JSON.parse(fixture("example.json"))) }
+
+  describe "#link" do
+    shared_examples_for "first item" do
+      it { expect(subject.link("interno").rel).to eq("interno") }
+      it { expect(subject.link("interno").href).to eq("http://url-interna") }
+      it { expect(subject.link("interno").type).to eq("image/jpeg") }
+    end
+
+    shared_examples_for "second item" do
+      it { expect(subject.link("externo").rel).to eq("externo") }
+      it { expect(subject.link("externo").href).to eq("http://url-externa") }
+      it { expect(subject.link("externo").type).to eq("image/jpeg") }
+    end
+
+    let(:example) { JSON.parse(fixture('link.json')) }
+
+    let(:url) { "http://mock.url/feed_with_link"            }
+    before    { register_uri(:get, url, body: link.to_json) }
+    subject   { described_class.get(url)                    }
+
+    context "when node is links" do
+      context "when is an array" do
+        let(:link) { {"links" => example } }
+        it_behaves_like "first item"
+        it_behaves_like "second item"
+      end
+
+      context "when is a hash" do
+        let(:link) { {"links" => example.first } }
+        it_behaves_like "first item"
+        it { expect(subject.link("externo")).to be_nil }
+      end
+    end
+
+    context "when node is link" do
+      context "when is an array" do
+        let(:link) { {"link" => example } }
+        it_behaves_like "first item"
+        it_behaves_like "second item"
+      end
+
+      context "when is a hash" do
+        let(:link) { {"link" => example.first } }
+        it_behaves_like "first item"
+        it { expect(subject.link("externo")).to be_nil }
+      end
+    end
+
+    context "when doesnt exists link node" do
+      let(:link) { {} }
+
+      it { expect(subject.link("interno")).to be_nil }
+      it { expect(subject.link("externo")).to be_nil }
+    end
+  end
 end

@@ -11,6 +11,14 @@ module Consumer
       return methodize_me(self[_method])
     end
 
+    def link(rel)
+      _link = self["link"] || self["links"]
+      _link = [_link].flatten
+      _link = _link.find {|l| l.is_a?(Hash) and l["rel"] == rel }
+
+      methodize_me(_link)
+    end
+
     def respond_to?(method)
       self.has_key?(method.to_s) or super
     end

@@ -22,6 +22,8 @@ Or install it yourself as:
 user = Cosumer.get("http://user.api.url")
 puts user.name
 puts user.purchases.first.date
+# with hipermidia
+puts user.link("rel_name").link
 ```
 
 ## Contributing
