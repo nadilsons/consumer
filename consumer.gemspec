@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["nadilsons@gmail.com"]
   spec.summary       = %q{Simple gem to consume json api}
   spec.description   = ""
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/nadilsons/consumer"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
