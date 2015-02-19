@@ -85,12 +85,14 @@ describe Consumer do
     context "when node is link" do
       context "when is an array" do
         let(:link) { {"link" => example } }
+        its(:link) { should be_an_instance_of Array }
         it_behaves_like "first item"
         it_behaves_like "second item"
       end
 
       context "when is a hash" do
         let(:link) { {"link" => example.first } }
+        its(:link) { should be_an_instance_of Consumer::Proxy }
         it_behaves_like "first item"
         it { expect(subject.link("externo")).to be_nil }
       end

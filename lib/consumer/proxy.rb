@@ -11,7 +11,9 @@ module Consumer
       return methodize_me(self[_method])
     end
 
-    def link(rel)
+    def link(rel = nil)
+      return method_missing(:link) if rel.nil?
+
       _link = self["link"] || self["links"]
       _link = [_link].flatten
       _link = _link.find {|l| l.is_a?(Hash) and l["rel"] == rel }
