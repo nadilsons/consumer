@@ -105,4 +105,22 @@ describe Consumer do
       it { expect(subject.link("externo")).to be_nil }
     end
   end
+
+  context "when first node is an array" do
+    let(:url) { "http://mock.url/feed_test"                            }
+    before    { register_uri(:get, url, body: fixture("array.json")) }
+    subject   { described_class.get(url)                               }
+
+    it { expect(subject).to be_instance_of Array }
+    its(:size) { should eq 10 }
+
+    context "#first" do
+      def subject; super.first; end;
+
+      its(:id)    { should eq "http://localhost:3000/users/1" }
+      its(:name)  { should eq "Tester" }
+      its(:email) { should eq "test@gmail.com" }
+      its(:posts) { should eq [] }
+    end
+  end
 end

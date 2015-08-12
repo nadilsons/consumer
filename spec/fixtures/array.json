@@ -1,0 +1,82 @@
+[
+  {
+    "id": "http://localhost:3000/users/1",
+    "name": "Tester",
+    "email": "test@gmail.com",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/2",
+    "name": "Tester",
+    "email": "sylvan@veumsatterfield.com",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/3",
+    "name": "Tester",
+    "email": "dell@huel.biz",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/4",
+    "name": "Tester",
+    "email": "hayden_dach@collins.biz",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/5",
+    "name": "Tester",
+    "email": "jovanny.anderson@batz.net",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/6",
+    "name": "Tester",
+    "email": "caden_bauch@parisian.name",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/7",
+    "name": "Tester",
+    "email": "gordon@metzhoeger.info",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/8",
+    "name": "Tester",
+    "email": "sharon@mueller.info",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/9",
+    "name": "Tester",
+    "email": "haskell_kirlin@stamm.com",
+    "posts": [
+
+    ]
+  },
+  {
+    "id": "http://localhost:3000/users/10",
+    "name": "Tester",
+    "email": "rosalyn@kiehn.biz",
+    "posts": [
+
+    ]
+  }
+]

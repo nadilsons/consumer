@@ -8,7 +8,13 @@ module Consumer
   def self.get(url)
     json = open(url).read
     hash = JSON.parse(json)
-    Consumer::Proxy.new(hash)
+
+    build(hash)
   end
 
+  def self.build(hash)
+    hash.is_a?(Array) ?
+      hash.map { |h| Consumer::Proxy.new(h)} :
+      Consumer::Proxy.new(hash)
+  end
 end
