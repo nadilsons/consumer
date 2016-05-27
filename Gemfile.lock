@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    consumer (0.2.1)
+    consumer (0.2.2)
 
 GEM
   remote: https://rubygems.org/
@@ -43,3 +43,6 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec (~> 3.1.0)
   rspec-its
+
+BUNDLED WITH
+   1.12.5
