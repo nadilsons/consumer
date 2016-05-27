@@ -123,4 +123,15 @@ describe Consumer do
       its(:posts) { should eq [] }
     end
   end
+
+  context "when keys are symbols" do
+    let(:hash) { {first_item: 1, second_item: 'item 2', array: [12,34], array2: [{item: false, alias: 'noone'}]} }
+    subject { described_class.build(hash) }
+
+    its(:first_item)         { should eq 1 }
+    its(:second_item)        { should eq 'item 2' }
+    its(:array)              { should eq [12, 34] }
+    its("array2.first.item") { should be_falsy }
+    its("array2.last.alias") { should eq 'noone' }
+  end
 end

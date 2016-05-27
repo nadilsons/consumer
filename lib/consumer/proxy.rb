@@ -2,7 +2,7 @@ module Consumer
   class Proxy < Hash
 
     def initialize(hash)
-      hash.each { |k, v| self[k] = v }
+      hash.each { |k, v| self[k.to_s] = v }
     end
 
     def method_missing(method, *args, &block)
