@@ -18,12 +18,19 @@ Or install it yourself as:
     $ gem install consumer
 
 ## Usage
+##### Get info from url
 ```
 user = Cosumer.get("http://user.api.url")
 puts user.name
 puts user.purchases.first.date
 # with hipermidia
 puts user.link("rel_name").link
+```
+##### Using a hash
+```
+user = Cosumer.build({name: 'name1', 'purchases': [{date: null}]})
+puts user.name
+puts user.purchases.first.date
 ```
 
 ## Contributing
